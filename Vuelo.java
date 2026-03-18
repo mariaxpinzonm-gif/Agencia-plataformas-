@@ -1,22 +1,41 @@
-import java.time.LocalTime;
-public class Vuelo{
-    int idVuelos;
-    String destino;
-    LocalTime horaLocalTime;
-    float precio;
+public class Vuelo {
 
-    public Vuelo(int idVuelos, String destino, LocalTime horaLocalTime, float precio) {
-        this.idVuelos = idVuelos;
-        this.destino = destino;
-        this.horaLocalTime = horaLocalTime;
-        this.precio = precio;
+    public String nombre;
+    public int telefono;
+    public int hora;
+    public String ubicacion;
+    public Vuelo(String nombre, int telefono, int hora, String ubicacion) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.hora = hora;
+        this.ubicacion = ubicacion;
     }
 
-    void obtenerVuelo(){
-        System.out.println("----- INFORMACIÓN DEL VUELO -----");
-        System.out.println("Informacion del vuelo - ID: " + idVuelos + 
-        " Destino: " + destino + 
-        " Hora: " + horaLocalTime + 
-        " Precio: $" + precio);
+   
+    public String getNombre() { return nombre; }
+    public int getTelefono() { return telefono; }
+    public int getHora() { return hora; }
+    public String getUbicacion() { return ubicacion; }
+    public void mostrarInfo() {
+        System.out.println("Vuelo: " + nombre);
+        System.out.println("Teléfono: " + telefono);
+        System.out.println("Hora: " + hora);
+        System.out.println("Ubicación: " + ubicacion);
     }
-}
+
+    public void mostrarInfo(boolean detallado) {
+        if (detallado) {
+            System.out.println("--- DETALLE COMPLETO ---");
+            System.out.println("Nombre: " + nombre);
+            System.out.println("Ubicacion: " + ubicacion);
+            System.out.println("Hora: " + hora);
+            System.out.println("Telefono: " + telefono);
+        } else {
+            mostrarInfo();
+        }
+    }
+
+
+    public void mostrarInfo(String mensajePersonalizado) {
+        System.out.println(mensajePersonalizado + " " + nombre);
+    }
